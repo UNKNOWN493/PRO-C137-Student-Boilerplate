@@ -15,8 +15,17 @@ export default class DetailsScreen extends Component {
 
   componentDidMount() {
       //call getDetails function here so that the data is fetched as soon as the screen is mounted
+    this.getDetails()
   }
   getDetails = () => {
+    const {url} = this.state ;
+    axios
+    .get(url)
+    .then((response)=>{
+    this.setDetails(response.data.data)})
+    .catch((error)=>{
+    Alert.alert(error.message)
+    })
       //write the codee to fetch the specific planet's data from the API
   };
   /*this function will determine the imagePath state depending on the planetType*/
@@ -56,5 +65,7 @@ const styles = StyleSheet.create({
   },
   cardItem: {
     marginBottom: 10
+    
+   
   }
 });
