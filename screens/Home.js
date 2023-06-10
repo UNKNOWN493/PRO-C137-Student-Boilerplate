@@ -80,7 +80,8 @@ export default class HomeScreen extends Component {
           styles.listItem,
           { backgroundColor: this.selectColor(index), opacity: 0.7 },
         ]}
-        
+        onPress = {()=>
+this.props.navigation.navigate("details",{planet_name:item.name})}
 
       >
         <Image
