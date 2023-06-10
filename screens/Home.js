@@ -24,10 +24,22 @@ export default class HomeScreen extends Component {
 
   componentDidMount() {
     //call getPlanets function here so that the data is fetched as soon as the screen is mounted
+    this.getPlanets()
   }
 
   getPlanets = () => {
     //write the codee to fetch the planet data from the API
+   
+    const {url} = this.state ;
+    axios
+    .get(url)
+    .then((response)=>{
+    this.setState({listData:response.data.data})})
+    .catch((error)=>{
+    Alert.alert(error.message)
+    })
+      //write the codee to fetch the specific planet's data from the API
+    
   };
 
 
