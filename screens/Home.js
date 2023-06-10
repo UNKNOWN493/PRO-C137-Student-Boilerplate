@@ -129,7 +129,12 @@ export default class HomeScreen extends Component {
             </View>
             <View style={styles.lowerContainer}>
             {/* make a flatlist below that will display the whole planet list that we have fetched from the API*/}
-
+   <FlatList
+keyExtractor={this.keyExtractor}
+data = {this.state.listData}
+renderItem = {this.renderItem}
+numColumns={2}
+/>
 
 
 
